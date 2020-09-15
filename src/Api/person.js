@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from "../site-config";
-import API from "../Utils";
+import API from "../Utils/apiHelper";
 
 const personBasePath = "/person/";
 const apiKey = `api_key=${API_KEY}`;

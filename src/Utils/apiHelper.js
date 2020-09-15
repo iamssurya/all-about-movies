@@ -1,7 +1,7 @@
 import * as axios from "axios";
-import { CONFIG } from "../site-config";
+import { API_URL } from "../site-config";
 
-axios.defaults.baseURL = CONFIG;
+axios.defaults.baseURL = API_URL;
 axios.interceptors.response.use(
   (response) => {
     return response;
@@ -14,11 +14,11 @@ axios.interceptors.response.use(
       case 403:
         window.location.href = "/error";
         break;
+      default:
+        return;
     }
     return Promise.reject(error.response);
   }
 );
-
-export const catchError = (error) => console.log(error);
 
 export default axios;

@@ -1,6 +1,7 @@
 import React from "react";
-import { Navbar, MovieCard, Banner } from "../Shared";
+import { Navbar, Banner } from "../Shared";
 import { Container, Row, Col } from "react-bootstrap";
+import MoviesList from "../MoviesList/MoviesList";
 
 class Home extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class Home extends React.Component {
           </Row>
           <Row>
             <Col>
-              <MovieCard />
+              <MoviesList />
             </Col>
           </Row>
         </Container>
