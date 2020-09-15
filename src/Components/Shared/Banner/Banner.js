@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 class Banner extends React.Component {
-    render() {
-        return <h1>Banner</h1>
-    }
+  render() {
+    return <h1>Banner</h1>;
+  }
 }
 
 export default Banner;

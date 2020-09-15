@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 class Person extends React.Component {
-    render() {
-        return <h1>Person</h1>
-    }
+  render() {
+    return <h1>Person</h1>;
+  }
 }
 
 export default Person;

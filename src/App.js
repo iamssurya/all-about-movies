@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import "./App.scss";
 import { Route } from "react-router-dom";
-import { Movie, Person, Home } from './Components';
+import { Movie, Person, Home } from "./Components";
 
 function App() {
   return (
