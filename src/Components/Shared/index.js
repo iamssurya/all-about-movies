@@ -1,7 +1,7 @@
 import React from "react";
 
-const Navbar = React.lazy(() => import("./Navbar/Navbar"));
+const MainNavBar = React.lazy(() => import("./MainNavBar/MainNavbar"));
 const Banner = React.lazy(() => import("./Banner/Banner"));
 const MovieCard = React.lazy(() => import("./MovieCard/MovieCard"));
 
-export { Navbar, Banner, MovieCard };
+export { MainNavBar, Banner, MovieCard };

@@ -1,36 +1,66 @@
-import { getPopularMoviesList } from "../../Api";
-import { FETCH_MOVIES, GET_MOVIES } from "../constants";
+import { getPopularMoviesList, searchMovie } from "api";
+import { receiveMovies, requestMovies } from "../dispatchers";
 
-export const requestMovies = () => ({
-  type: FETCH_MOVIES,
-});
-
-export const receiveMovies = (data) => ({
-  type: GET_MOVIES,
-  movies: data.results,
-  page: data.page,
-  total_pages: data.total_pages,
-  total_results: data.total_results,
-  receivedAt: Date.now(),
-});
-
-const fetchMovies = () => (dispatch) => {
-  dispatch(requestMovies());
+/**
+ * 
+ * @param {*} storeName 
+ */
+const fetchMovies = (storeName) => (dispatch) => {
+  dispatch(requestMovies(storeName));
 
   return getPopularMoviesList().then((response) => {
-    dispatch(receiveMovies(response.data));
+    dispatch(receiveMovies(response.data, storeName));
   });
 };
 
-const shouldFetchMovies = (state) => {
-  const { moviesReducer } = state;
-  const { movies } = moviesReducer;
+/**
+ * 
+ * @param {*} storeName 
+ */
+const searchMovies = (storeName) => (dispatch) => {
+  dispatch(requestMovies(storeName));
 
-  return movies && movies.length < 1;
+  return searchMovie(storeName).then((response) => {
+    dispatch(receiveMovies(response.data, storeName));
+  });
 };
 
-export const peekMovies = () => (dispatch, getState) => {
+/**
+ * 
+ * @param {*} state 
+ * @param {*} storeName 
+ */
+const shouldFetchMovies = (state, storeName) => {
+  const { moviesReducer } = state;
+  const movies = moviesReducer[storeName];
+
+  if (!movies) {
+    return true;
+  }
+
+  return (
+    !movies ||
+    (movies && !movies.result) ||
+    (movies && movies.result && movies.result.length < 1)
+  );
+};
+
+/**
+ * 
+ * @param {*} storeName 
+ */
+export const peekMovies = (storeName) => (dispatch, getState) => {
+  if (shouldFetchMovies(getState(), storeName)) {
+    return dispatch(fetchMovies(storeName));
+  }
+};
+
+/**
+ * 
+ * @param {*} storeName 
+ */
+export const peekSearchMovies = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovies(getState())) {
-    return dispatch(fetchMovies());
+    return dispatch(searchMovies(storeName));
   }
 };

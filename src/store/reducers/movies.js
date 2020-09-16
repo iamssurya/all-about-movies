@@ -1,14 +1,19 @@
-import { FETCH_MOVIES, GET_MOVIES } from "../constants";
+import { SELECT_MOVIE_LIST, FETCH_MOVIES, GET_MOVIES } from "../constants";
 
-const initialState = {
+const initialMovieListState = {
   isFetching: true,
-  movies: [],
-  page: 1,
-  total_pages: 1,
-  total_results: 1
 };
 
-const moviesReducer = (state = initialState, action) => {
+export const selectedMovieList = (state = "popular", action) => {
+  switch (action.type) {
+    case SELECT_MOVIE_LIST:
+      return action.storeName;
+    default:
+      return state;
+  }
+};
+
+const moviesListReducer = (state = initialMovieListState, action) => {
   switch (action.type) {
     case FETCH_MOVIES:
       return {
@@ -18,8 +23,21 @@ const moviesReducer = (state = initialState, action) => {
     case GET_MOVIES:
       return {
         ...state,
-        ...action,
         isFetching: false,
+        ...action,
+      };
+    default:
+      return state;
+  }
+};
+
+const moviesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case FETCH_MOVIES:
+    case GET_MOVIES:
+      return {
+        ...state,
+        [action.storeName]: moviesListReducer(state[action.storeName], action),
       };
     default:
       return state;

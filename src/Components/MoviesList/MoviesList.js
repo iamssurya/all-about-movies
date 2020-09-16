@@ -10,12 +10,12 @@ class MoviesList extends React.Component {
     dispatch: PropTypes.func.isRequired,
     isFetching: PropTypes.bool.isRequired,
     total_pages: PropTypes.number.isRequired,
-    total_results: PropTypes.number.isRequired
+    total_results: PropTypes.number.isRequired,
   };
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(peekMovies());
+    const { dispatch, selectedMovieList } = this.props;
+    dispatch(peekMovies(selectedMovieList));
   }
 
   render() {
@@ -25,23 +25,35 @@ class MoviesList extends React.Component {
     return (
       <React.Fragment>
         <h1>Movies</h1>
-        <p>{!isEmpty && JSON.stringify(movies)}</p>
+        <p>{!isEmpty && JSON.stringify(movies, null, 2)}</p>
       </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const {
-    moviesReducer: { movies, page, isFetching, total_pages, total_results },
-  } = state;
+  const { selectedMovieList, moviesReducer } = state;
 
-  return {
-    movies,
+  const {
+    results,
     page,
     isFetching,
     total_pages,
     total_results,
+  } = moviesReducer[selectedMovieList] || {
+    isFetching: true,
+    movies: [],
+    total_pages: 1,
+    total_results: 1
+  };
+
+  return {
+    movies: results,
+    page,
+    isFetching,
+    total_pages,
+    total_results,
+    selectedMovieList
   };
 };
 

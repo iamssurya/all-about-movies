@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Banner } from "../Shared";
+import { MainNavBar, Banner } from "../Shared";
 import { Container, Row, Col } from "react-bootstrap";
 import MoviesList from "../MoviesList/MoviesList";
 
@@ -7,8 +7,8 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <MainNavBar />
         <Container fluid>
-          <Navbar />
           <Row>
             <Col>
               <Banner />

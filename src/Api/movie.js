@@ -23,7 +23,7 @@ const getMovieDetail = (movieId) => {
 };
 
 const searchMovie = (movie) => {
-  return API.get(`${API_URL}/${movieBasePath}?${apiKey}&query=${movie}`);
+  return API.get(`${API_URL}search/${movieBasePath}?${apiKey}&query=${movie}`);
 };
 
 export { getPopularMoviesList, getMovieDetail, searchMovie };
