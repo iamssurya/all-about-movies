@@ -1,7 +1,7 @@
 import { API_KEY, API_URL } from "../site-config";
 import API from "../Utils/apiHelper";
 
-const personBasePath = "/person/";
+const personBasePath = "person";
 const apiKey = `api_key=${API_KEY}`;
 
 /**
@@ -9,7 +9,7 @@ const apiKey = `api_key=${API_KEY}`;
  */
 
 const getPersonDetail = (personId) => {
-  return API.get(`${API_URL}/${personBasePath}/${personId}?${apiKey}`);
+  return API.get(`${API_URL}${personBasePath}/${personId}?${apiKey}`);
 };
 
 export { getPersonDetail };

@@ -21,13 +21,13 @@ class MoviesList extends React.Component {
 
   render() {
     const { isEmpty, isFetching, movies } = this.props;
-    
-    if(isEmpty) {
-      return <DataNotFound />
+
+    if (isEmpty) {
+      return <DataNotFound />;
     }
 
-    if(isFetching) {
-      return <Loader />
+    if (isFetching) {
+      return <Loader />;
     }
 
     return (
@@ -51,9 +51,10 @@ const mapStateToProps = (state) => {
     total_results,
   } = moviesReducer[selectedMovieList] || {
     isFetching: true,
-    movies: [],
+    page: 1,
+    results: [],
     total_pages: 1,
-    total_results: 1
+    total_results: 1,
   };
 
   return {
@@ -63,7 +64,7 @@ const mapStateToProps = (state) => {
     total_pages,
     isEmpty,
     total_results,
-    selectedMovieList
+    selectedMovieList,
   };
 };
 

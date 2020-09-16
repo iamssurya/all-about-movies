@@ -3,6 +3,10 @@ import { SELECT_MOVIE_LIST, FETCH_MOVIES, GET_MOVIES } from "../constants";
 const initialMovieListState = {
   isFetching: true,
   isEmpty: false,
+  page: 0,
+  total_pages: 0,
+  total_results: 0,
+  results: [],
 };
 
 export const selectedMovieList = (state = "popular", action) => {

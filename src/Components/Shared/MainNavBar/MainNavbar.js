@@ -5,13 +5,16 @@ import { peekSearchMovies } from "store/actions/movies";
 import { DebounceInput } from "react-debounce-input";
 import { selectMovieStore } from "store/dispatchers";
 
+const DEFAULT_SEARCH = "popular";
+
 class MainNavBar extends React.Component {
   searchMovies = (event) => {
     event.preventDefault();
     const { dispatch } = this.props;
-    const valueToSearch = event.target.value;
-    dispatch(selectMovieStore(valueToSearch));
-    dispatch(peekSearchMovies(valueToSearch));
+    const dispatchValue = event.target.value || DEFAULT_SEARCH;
+
+    dispatch(selectMovieStore(dispatchValue));
+    dispatch(peekSearchMovies(dispatchValue));
   };
 
   render() {
@@ -27,7 +30,7 @@ class MainNavBar extends React.Component {
                 <FormControl
                   as={DebounceInput}
                   type="text"
-                  placeholder="Search"
+                  placeholder="Search Movies..."
                   debounceTimeout={1000}
                   className="mr-sm-2 w-100"
                   onChange={this.searchMovies}
@@ -41,4 +44,4 @@ class MainNavBar extends React.Component {
   }
 }
 
-export default connect(() => {})(MainNavBar);
+export default connect()(MainNavBar);
