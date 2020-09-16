@@ -15,3 +15,9 @@ export const receiveMovies = (data, storeName) => ({
   storeName,
   ...data,
 });
+
+export const returnMoviesNotFound = (storeName) => ({
+  type: GET_MOVIES,
+  storeName,
+  isEmpty: true,
+});

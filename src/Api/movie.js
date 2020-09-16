@@ -13,10 +13,10 @@ const getPopularMoviesList = () => {
 
 const getMovieDetail = (movieId) => {
   const movieDetail = API.get(
-    `${API_URL}/${movieBasePath}/${movieId}?${apiKey}`
+    `${API_URL}${movieBasePath}/${movieId}?${apiKey}`
   );
   const movieCredits = API.get(
-    `${API_URL}/${movieBasePath}/${movieId}/credits?${apiKey}`
+    `${API_URL}${movieBasePath}/${movieId}/credits?${apiKey}`
   );
 
   return Promise.all([movieDetail, movieCredits]);

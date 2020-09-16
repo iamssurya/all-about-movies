@@ -3,7 +3,7 @@ import { Col, Form, FormControl, Navbar, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { peekSearchMovies } from "store/actions/movies";
 import { DebounceInput } from "react-debounce-input";
-import { selectMovieStore } from 'store/dispatchers';
+import { selectMovieStore } from "store/dispatchers";
 
 class MainNavBar extends React.Component {
   searchMovies = (event) => {
@@ -17,7 +17,7 @@ class MainNavBar extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" fixed="top">
           <Row className="w-100">
             <Col>
               <Navbar.Brand href="#home">All about Movies</Navbar.Brand>

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { peekMovies } from "store/actions";
+import { DataNotFound, Loader } from "components/Shared";
 
 class MoviesList extends React.Component {
   static propTypes = {
@@ -19,8 +20,15 @@ class MoviesList extends React.Component {
   }
 
   render() {
-    const { movies } = this.props;
-    const isEmpty = !movies || movies.length === 0;
+    const { isEmpty, isFetching, movies } = this.props;
+    
+    if(isEmpty) {
+      return <DataNotFound />
+    }
+
+    if(isFetching) {
+      return <Loader />
+    }
 
     return (
       <React.Fragment>
@@ -38,6 +46,7 @@ const mapStateToProps = (state) => {
     results,
     page,
     isFetching,
+    isEmpty,
     total_pages,
     total_results,
   } = moviesReducer[selectedMovieList] || {
@@ -52,6 +61,7 @@ const mapStateToProps = (state) => {
     page,
     isFetching,
     total_pages,
+    isEmpty,
     total_results,
     selectedMovieList
   };

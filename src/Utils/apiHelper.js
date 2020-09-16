@@ -10,7 +10,6 @@ axios.interceptors.response.use(
     switch (error.response.status) {
       case 401:
         break;
-      case 404:
       case 403:
         window.location.href = "/error";
         break;
