@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { peekMovies } from "store/actions";
-import { DataNotFound, Loader } from "components/Shared";
 import { Row } from "react-bootstrap";
-import { MovieCard } from "../Shared";
+import { MovieCard, Banner, Loader, DataNotFound } from "../Shared";
 
 import "./MoviesList.scss";
 
@@ -35,8 +34,16 @@ class MoviesList extends React.Component {
       return <Loader />;
     }
 
+    const firstMovie = movies[0];
     return (
       <React.Fragment>
+        <Banner
+          background={firstMovie.backdrop_path}
+          title={firstMovie.original_title}
+          tagline={firstMovie.tagline}
+          overview={firstMovie.overview}
+          releaseDate={new Date(firstMovie.release_date).getFullYear()}
+        />
         <h4 className="movies-list-title">Results for {selectedMovieList}</h4>
         <Row>
           {movies.map((movie) => (

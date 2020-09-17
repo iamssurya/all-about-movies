@@ -24,7 +24,7 @@ class MainNavBar extends React.Component {
         <Navbar bg="dark" variant="dark" fixed="top">
           <Row className="w-100">
             <Col>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="/">
                 <MdMovieCreation /> All about movies !!
               </Navbar.Brand>
             </Col>

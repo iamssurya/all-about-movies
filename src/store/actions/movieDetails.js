@@ -9,9 +9,13 @@ const fetchMovieDetails = (storeName) => (dispatch) => {
   dispatch(requestMovieDetails(storeName));
 
   return getMovieDetail(storeName).then((response) => {
-    const [generalDetails, crewDetails] = response;
-    if (generalDetails && crewDetails) {
-      dispatch(receiveMovieDetails({ generalDetails, crewDetails }, storeName));
+    let [generalDetails, castAndCrewDetails] = response;
+    if (generalDetails && castAndCrewDetails) {
+      generalDetails = generalDetails.data;
+      castAndCrewDetails = castAndCrewDetails.data;
+      dispatch(
+        receiveMovieDetails({ generalDetails, castAndCrewDetails }, storeName)
+      );
     } else {
       dispatch(returnMovieDetailsNotFound(storeName));
     }

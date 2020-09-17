@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { peekMovieDetails } from "store/actions/movieDetails";
 import { selectMovieId } from "store/dispatchers";
-import { DataNotFound, Loader } from "components/Shared";
+import { Banner, DataNotFound, Loader } from "components/Shared";
+import CastAndCrew from "components/CastAndCrew/CastAndCrew";
 
 class Movie extends React.Component {
   static propTypes = {
@@ -27,8 +28,9 @@ class Movie extends React.Component {
 
   render() {
     const { isFetching, isEmpty, movieDetail } = this.props;
+    const { generalDetails, castAndCrewDetails } = movieDetail || {};
 
-    if (isEmpty) {
+    if (isEmpty || !generalDetails) {
       return <DataNotFound />;
     }
 
@@ -38,8 +40,15 @@ class Movie extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>Movie Detail</h1>
-        <p>{JSON.stringify(movieDetail, null, 2)}</p>
+        <Banner
+          background={generalDetails.backdrop_path}
+          title={generalDetails.original_title}
+          tagline={generalDetails.tagline}
+          runtime={generalDetails.runtime}
+          overview={generalDetails.overview}
+          releaseDate={new Date(generalDetails.release_date).getFullYear()}
+        />
+        <CastAndCrew {...castAndCrewDetails} />
       </React.Fragment>
     );
   }

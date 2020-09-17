@@ -1,19 +1,19 @@
 @import 'styles';
 
-$movie-poster-height: 312px;
+$person-poster-height: 250px;
 
-.movie-card {
+.person-card {
     margin: 2rem auto;
     position: relative;
 }
 
-.movie-title {
+.person-title {
     background: $transparent-black;
     position: absolute;
     width: 100%;
-    bottom: 49px;
+    bottom: 0;
 }
 
-.movie-poster {
-    min-height: $movie-poster-height;
+.person-poster {
+    min-height: $person-poster-height;
 }

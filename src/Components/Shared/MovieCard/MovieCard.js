@@ -7,7 +7,6 @@ import { MoviePosterBasePath } from "site-config";
 
 import "./MovieCard.scss";
 
-
 const imageBasePath = MoviePosterBasePath;
 class MovieCard extends React.Component {
   static propTypes = {
@@ -36,9 +35,7 @@ class MovieCard extends React.Component {
         <Card className="movie-card bg-dark text-white">
           <Card.Img src={imagePath} alt={data.title} className="movie-poster" />
           <Card.Body className="movie-title">
-            <Card.Title className="text-center">
-              <Card.Link className="text-white">{data.title}</Card.Link>
-            </Card.Title>
+            <Card.Text className="text-center">{data.title}</Card.Text>
           </Card.Body>
           <Card.Footer>
             <Row>
