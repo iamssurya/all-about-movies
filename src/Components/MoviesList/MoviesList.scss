@@ -1,0 +1,10 @@
+@import 'styles';
+
+.movies-list-title {
+    text-transform: capitalize;
+    font-weight: $regular;
+}
+
+.movie-card {
+    cursor: pointer;
+}

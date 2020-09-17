@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { peekMovies } from "store/actions";
 import { DataNotFound, Loader } from "components/Shared";
+import { Row } from "react-bootstrap";
+import { MovieCard } from "../Shared";
+
+import "./MoviesList.scss";
 
 class MoviesList extends React.Component {
   static propTypes = {
@@ -12,6 +16,7 @@ class MoviesList extends React.Component {
     isFetching: PropTypes.bool.isRequired,
     total_pages: PropTypes.number.isRequired,
     total_results: PropTypes.number.isRequired,
+    selectedMovieList: PropTypes.string.isRequired,
   };
 
   componentDidMount() {
@@ -20,7 +25,7 @@ class MoviesList extends React.Component {
   }
 
   render() {
-    const { isEmpty, isFetching, movies } = this.props;
+    const { isEmpty, isFetching, movies, selectedMovieList } = this.props;
 
     if (isEmpty) {
       return <DataNotFound />;
@@ -32,8 +37,12 @@ class MoviesList extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>Movies</h1>
-        <p>{!isEmpty && JSON.stringify(movies, null, 2)}</p>
+        <h4 className="movies-list-title">Results for {selectedMovieList}</h4>
+        <Row>
+          {movies.map((movie) => (
+            <MovieCard data={movie} key={movie.id} className="movie-card" />
+          ))}
+        </Row>
       </React.Fragment>
     );
   }

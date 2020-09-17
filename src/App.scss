@@ -1,6 +1,9 @@
 // Importing base styles from bootstrap
 @import "~bootstrap/scss/bootstrap";
+@import "styles/utils";
 
 .route-view {
-    margin-top: 5%;
+    padding-top: 5%;
+    background: $black;
+    color: $white;
 }

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { peekSearchMovies } from "store/actions/movies";
 import { DebounceInput } from "react-debounce-input";
 import { selectMovieStore } from "store/dispatchers";
+import { MdMovieCreation } from "react-icons/md";
 
 const DEFAULT_SEARCH = "popular";
 
@@ -23,7 +24,9 @@ class MainNavBar extends React.Component {
         <Navbar bg="dark" variant="dark" fixed="top">
           <Row className="w-100">
             <Col>
-              <Navbar.Brand href="#home">All about Movies</Navbar.Brand>
+              <Navbar.Brand href="#home">
+                <MdMovieCreation /> All about movies !!
+              </Navbar.Brand>
             </Col>
             <Col xs={6}>
               <Form inline>
