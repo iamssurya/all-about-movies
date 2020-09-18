@@ -25,10 +25,12 @@ class MainNavBar extends React.Component {
           <Row className="w-100">
             <Col>
               <Navbar.Brand href="/">
-                <MdMovieCreation /> All about movies !!
+                <h4>
+                  <MdMovieCreation />
+                </h4>
               </Navbar.Brand>
             </Col>
-            <Col xs={6}>
+            <Col xs={4}>
               <Form inline>
                 <FormControl
                   as={DebounceInput}

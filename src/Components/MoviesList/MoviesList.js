@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { peekMovies } from "store/actions";
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { MovieCard, Banner, Loader, DataNotFound } from "../Shared";
 
 import "./MoviesList.scss";
@@ -26,7 +26,7 @@ class MoviesList extends React.Component {
   render() {
     const { isEmpty, isFetching, movies, selectedMovieList } = this.props;
 
-    if (isEmpty) {
+    if (isEmpty || movies.length < 1) {
       return <DataNotFound />;
     }
 
@@ -44,12 +44,14 @@ class MoviesList extends React.Component {
           overview={firstMovie.overview}
           releaseDate={new Date(firstMovie.release_date).getFullYear()}
         />
-        <h4 className="movies-list-title">Results for {selectedMovieList}</h4>
-        <Row>
-          {movies.map((movie) => (
-            <MovieCard data={movie} key={movie.id} className="movie-card" />
-          ))}
-        </Row>
+        <Container fluid className="mt-4">
+          <h4 className="movies-list-title">Results for {selectedMovieList}</h4>
+          <Row>
+            {movies.map((movie) => (
+              <MovieCard data={movie} key={movie.id} className="movie-card" />
+            ))}
+          </Row>
+        </Container>
       </React.Fragment>
     );
   }

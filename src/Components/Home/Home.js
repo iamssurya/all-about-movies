@@ -1,18 +1,16 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import MoviesList from "../MoviesList/MoviesList";
 
 class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Container fluid>
-          <Row>
-            <Col>
-              <MoviesList />
-            </Col>
-          </Row>
-        </Container>
+        <Row>
+          <Col>
+            <MoviesList />
+          </Col>
+        </Row>
       </React.Fragment>
     );
   }

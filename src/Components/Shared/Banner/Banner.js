@@ -3,8 +3,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import { MovieBannerBasePath } from "site-config";
 
 import "./Banner.scss";
+import PropTypes from "prop-types";
 
-const mockImage = "http://image.tmdb.org/t/p/w1280/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg";
+const mockImage =
+  "http://image.tmdb.org/t/p/w1280/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg";
 
 const Banner = (props) => {
   const {
@@ -35,19 +37,25 @@ const Banner = (props) => {
               <h3>
                 {title || "title"} <span>({releaseDate | "N/A"})</span>
               </h3>
-              {runtime && <p>{runtime} mins</p>}
-              {tagline && (
-                <p>
-                  <i>{tagline}</i>
-                </p>
-              )}
-              <p>{overview || "overview"}</p>
+              {runtime && <p className="runtime">{runtime} mins</p>}
+              {tagline && <p className="tagline">{tagline}</p>}
+              <p className="overview">{overview || "overview"}</p>
             </Col>
           </Row>
         </Container>
       </div>
     </React.Fragment>
   );
+};
+
+Banner.propTypes = {
+  background: PropTypes.string,
+  title: PropTypes.string,
+  tagline: PropTypes.string,
+  overview: PropTypes.string,
+  releaseDate: PropTypes.number,
+  hideDescription: PropTypes.string,
+  runtime: PropTypes.number,
 };
 
 export default React.memo(Banner);

@@ -1,13 +1,26 @@
-@import 'styles';
+@import "styles";
 
 .banner {
-    padding-top: 15%;
-    height: 500px;
+  padding-top: 15%;
+  height: 500px;
 }
 
 .movie-detail {
-    background: $transparent-black;
-    text-align: left;
-    padding: 1%;
-    min-height: 250px;
+  background: $transparent-black;
+  text-align: left;
+  padding: 1%;
+  min-height: 250px;
+
+  .runtime {
+    color: $dull-white;
+  }
+
+  .tagline {
+    font-style: italic;
+    color: $dull-white;
+  }
+
+  .overview {
+    color: $gold;
+  }
 }

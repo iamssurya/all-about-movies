@@ -1,0 +1,28 @@
+@import "styles";
+
+.person-detail {
+  padding-top: 5%;
+}
+
+.person-info {
+  margin-top: 5%;
+
+  .birthday {
+    font-weight: $thin;
+    font-size: 0.8rem;
+    color: $dull-white;
+  }
+
+  .place-of-birth {
+    color: $dull-white;
+  }
+
+  .also-known-as {
+    font-style: italic;
+    color: $dull-white;
+  }
+
+  .biography {
+    color: $gold;
+  }
+}

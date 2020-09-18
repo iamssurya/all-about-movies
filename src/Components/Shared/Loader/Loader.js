@@ -1,10 +1,12 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
 
+import "./Loader.scss";
+
 const Loader = () => {
   return (
     <React.Fragment>
-      <div>
+      <div className="loader">
         <div className="align-self-center">
           <Spinner animation="grow" variant="success" />
           <Spinner animation="grow" variant="danger" />
