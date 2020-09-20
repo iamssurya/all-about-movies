@@ -5,6 +5,11 @@ import {
   returnPersonDetailsNotFound,
 } from "../dispatchers";
 
+/**
+ * Fetch person details
+ * 
+ * @param {String} storeName 
+ */
 const fetchPersonDetails = (storeName) => (dispatch) => {
   dispatch(requestPersonDetails(storeName));
 
@@ -22,6 +27,12 @@ const fetchPersonDetails = (storeName) => (dispatch) => {
   });
 };
 
+/**
+ * Check the store if data is present
+ * 
+ * @param {*} state 
+ * @param {String} storeName 
+ */
 export const shouldFetchPersonDetails = (state, storeName) => {
   const { personDetailsReducer } = state;
   const details = personDetailsReducer[storeName];
@@ -33,6 +44,11 @@ export const shouldFetchPersonDetails = (state, storeName) => {
   return !details || Object.keys(details).length < 1;
 };
 
+/**
+ * Peek for person details
+ * 
+ * @param {String} storeName 
+ */
 export const peekPersonDetails = (storeName) => (dispatch, getState) => {
   if (shouldFetchPersonDetails(getState(), storeName)) {
     return dispatch(fetchPersonDetails(storeName));

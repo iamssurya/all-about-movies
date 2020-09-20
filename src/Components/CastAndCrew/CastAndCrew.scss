@@ -1,0 +1,5 @@
+@import "styles";
+
+.cast-and-crew {
+    @include fade-in(.5s, 1s);
+}

@@ -1,11 +1,14 @@
+// External Dependencies
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
+import { Container, Col, Row } from "react-bootstrap";
+
+// Internal Dependencies
 import { peekPersonDetails } from "store/actions";
 import { selectPersonId } from "store/dispatchers";
 import { DataNotFound, Loader, MovieCard, PersonCard } from "components/Shared";
-import { Container, Col, Row } from "react-bootstrap";
 
 import "./Person.scss";
 

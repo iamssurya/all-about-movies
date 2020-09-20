@@ -1,13 +1,18 @@
+// External Dependencies
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
+import { RiMovie2Fill } from "react-icons/ri";
 
+// Internal Dependencies
 import "./Crew.scss";
 
 const Crew = ({ crew, handleClick }) => {
   return (
     <React.Fragment>
-      <h4 className="crew-title">Crew</h4>
+      <h4 className="crew-title">
+        <RiMovie2Fill /> Crew
+      </h4>
       <hr />
       {crew.map((crewDetail, index) => (
         <Row key={index}>

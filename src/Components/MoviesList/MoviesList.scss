@@ -9,3 +9,7 @@
 .movie-card {
     cursor: pointer;
 }
+
+.movie-list {
+    @include fade-in(1s, 1s);
+}

@@ -1,10 +1,15 @@
+// External Dependencies
 import React from "react";
 import PropTypes from "prop-types";
-import { PersonCard } from "components/Shared";
-import { Col, Container, Row } from "react-bootstrap";
-import Crew from "components/Crew/Crew";
 import { withRouter } from "react-router-dom";
-import DataNotFound from "components/Shared/DataNotFound/DataNotFound";
+import { TiGroup } from "react-icons/ti";
+import { Col, Container, Row } from "react-bootstrap";
+
+// Internal Dependencies
+import { PersonCard, DataNotFound } from "components/Shared";
+import Crew from "components/Crew/Crew";
+
+import "./CastAndCrew.scss";
 
 const CastAndCrew = ({ cast, crew, history }) => {
   const navigateToDetail = (id) => {
@@ -17,10 +22,12 @@ const CastAndCrew = ({ cast, crew, history }) => {
 
   return (
     <React.Fragment>
-      <Container fluid>
+      <Container fluid className="cast-and-crew">
         <Row className="mt-3">
           <Col xs={9}>
-            <h4 className="cast-title">Cast</h4>
+            <h4 className="cast-title">
+              <TiGroup /> Cast
+            </h4>
             <Row>
               {cast.map((person, index) => (
                 <Col

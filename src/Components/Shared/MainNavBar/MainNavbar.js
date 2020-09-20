@@ -1,21 +1,31 @@
+// External Dependencies
 import React from "react";
 import { Col, Form, FormControl, Navbar, Row } from "react-bootstrap";
 import { connect } from "react-redux";
-import { peekSearchMovies, peekMovies } from "store/actions/movies";
-import { DebounceInput } from "react-debounce-input";
-import { selectMovieStore } from "store/dispatchers";
 import { MdMovieCreation } from "react-icons/md";
 import { withRouter } from "react-router-dom";
+import { DebounceInput } from "react-debounce-input";
+
+// Internal Dependencies
+import { peekSearchMovies, peekMovies } from "store/actions";
+import { selectMovieStore } from "store/dispatchers";
 
 const DEFAULT_SEARCH = "popular";
 
 class MainNavBar extends React.Component {
   searchMovies = (event) => {
     event.preventDefault();
-    const { dispatch } = this.props;
+    const {
+      dispatch,
+      match: { path },
+    } = this.props;
     if (event.target.value) {
       dispatch(selectMovieStore(event.target.value));
       dispatch(peekSearchMovies(event.target.value));
+
+      if (path !== "") {
+        this.goToHome();
+      }
     } else {
       dispatch(selectMovieStore(DEFAULT_SEARCH));
       dispatch(peekMovies(DEFAULT_SEARCH));

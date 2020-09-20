@@ -5,6 +5,11 @@ import {
   returnMovieDetailsNotFound,
 } from "../dispatchers";
 
+/**
+ * Fetch movie details with storename
+ * 
+ * @param {String} storeName 
+ */
 const fetchMovieDetails = (storeName) => (dispatch) => {
   dispatch(requestMovieDetails(storeName));
 
@@ -22,6 +27,12 @@ const fetchMovieDetails = (storeName) => (dispatch) => {
   });
 };
 
+/**
+ * Check if data exists in store
+ * 
+ * @param {*} state 
+ * @param {String} storeName 
+ */
 export const shouldFetchMovieDetails = (state, storeName) => {
   const { movieDetailsReducer } = state;
   const details = movieDetailsReducer[storeName];
@@ -33,6 +44,11 @@ export const shouldFetchMovieDetails = (state, storeName) => {
   return !details || Object.keys(details).length < 1;
 };
 
+/**
+ * Peek for movie details
+ * 
+ * @param {String} storeName 
+ */
 export const peekMovieDetails = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovieDetails(getState(), storeName)) {
     return dispatch(fetchMovieDetails(storeName));

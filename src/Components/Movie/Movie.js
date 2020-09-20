@@ -1,8 +1,11 @@
+// External Dependencies
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import { peekMovieDetails } from "store/actions/movieDetails";
+
+// Internal Dependencies
+import { peekMovieDetails } from "store/actions";
 import { selectMovieId } from "store/dispatchers";
 import { Banner, DataNotFound, Loader } from "components/Shared";
 import CastAndCrew from "components/CastAndCrew/CastAndCrew";

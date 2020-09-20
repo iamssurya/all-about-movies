@@ -1,8 +1,11 @@
+// External Dependencies
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { peekMovies } from "store/actions";
 import { Container, Row } from "react-bootstrap";
+
+// Internal Dependencies
+import { peekMovies } from "store/actions";
 import { MovieCard, Banner, Loader, DataNotFound } from "../Shared";
 
 import "./MoviesList.scss";
@@ -46,7 +49,7 @@ class MoviesList extends React.Component {
             .getFullYear()
             .toString()}
         />
-        <Container fluid className="mt-4">
+        <Container fluid className="mt-4 movie-list">
           <h4 className="movies-list-title">Results for {selectedMovieList}</h4>
           <Row>
             {movies.map((movie) => (

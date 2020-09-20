@@ -1,9 +1,12 @@
+// External Dependencies
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
+
+// Internal Dependencies
 import { MovieBannerBasePath } from "site-config";
 
 import "./Banner.scss";
-import PropTypes from "prop-types";
 
 const mockImage =
   "http://image.tmdb.org/t/p/w1280/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg";

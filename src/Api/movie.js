@@ -11,6 +11,11 @@ const getPopularMoviesList = () => {
   return API.get(`${API_URL}${movieBasePath}/popular?${apiKey}`);
 };
 
+/**
+ * Get movie and its credit details
+ * 
+ * @param {String} movieId 
+ */
 const getMovieDetail = (movieId) => {
   const movieDetail = API.get(
     `${API_URL}${movieBasePath}/${movieId}?${apiKey}`
@@ -22,6 +27,11 @@ const getMovieDetail = (movieId) => {
   return Promise.all([movieDetail, movieCredits]);
 };
 
+/**
+ * Search for a movie
+ * 
+ * @param {String} movie 
+ */
 const searchMovie = (movie) => {
   return API.get(`${API_URL}search/${movieBasePath}?${apiKey}&query=${movie}`);
 };

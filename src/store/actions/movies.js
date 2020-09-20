@@ -6,8 +6,9 @@ import {
 } from "../dispatchers";
 
 /**
- *
- * @param {*} storeName
+ * Fetch movie details
+ * 
+ * @param {String} storeName
  */
 const fetchMovies = (storeName) => (dispatch) => {
   dispatch(requestMovies(storeName));
@@ -18,8 +19,9 @@ const fetchMovies = (storeName) => (dispatch) => {
 };
 
 /**
- *
- * @param {*} storeName
+ * Search for movie
+ * 
+ * @param {string} storeName
  */
 const searchMovies = (storeName) => (dispatch) => {
   dispatch(requestMovies(storeName));
@@ -34,9 +36,10 @@ const searchMovies = (storeName) => (dispatch) => {
 };
 
 /**
- *
+ * Check if data is present in store
+ * 
  * @param {*} state
- * @param {*} storeName
+ * @param {String} storeName
  */
 export const shouldFetchMovies = (state, storeName) => {
   const { moviesReducer } = state;
@@ -50,8 +53,9 @@ export const shouldFetchMovies = (state, storeName) => {
 };
 
 /**
- *
- * @param {*} storeName
+ * Peek Movie data
+ * 
+ * @param {String} storeName
  */
 export const peekMovies = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovies(getState(), storeName)) {
@@ -60,8 +64,9 @@ export const peekMovies = (storeName) => (dispatch, getState) => {
 };
 
 /**
- *
- * @param {*} storeName
+ * Peek and Search for Movie
+ * 
+ * @param {String} storeName
  */
 export const peekSearchMovies = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovies(getState(), storeName)) {

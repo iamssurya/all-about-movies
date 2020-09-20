@@ -1,11 +1,14 @@
 @import "styles";
 
 .banner {
+  @include fade-in(.5s);
   padding-top: 15%;
   height: 500px;
 }
 
 .movie-detail {
+  @include fade-in(.5s, .5s);
+
   background: $transparent-black;
   text-align: left;
   padding: 1%;
@@ -21,6 +24,8 @@
   }
 
   .overview {
+    @include fade-in(1s, 1s);
+
     color: $gold;
   }
 }
