@@ -8,30 +8,25 @@ import PropTypes from "prop-types";
 const mockImage =
   "http://image.tmdb.org/t/p/w1280/x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg";
 
-const Banner = (props) => {
-  const {
-    background,
-    title,
-    tagline,
-    overview,
-    releaseDate,
-    hideDescription,
-    runtime,
-  } = props;
+const Banner = ({
+  background,
+  title,
+  tagline,
+  overview,
+  releaseDate,
+  runtime,
+}) => {
   const imageBackground = MovieBannerBasePath + background;
   return (
     <React.Fragment>
       <div
         className="banner"
         style={{
-          background: `linear-gradient(to bottom, rgba(0,0,0,0)
-          39%, rgba(0,0,0,0)
-          41%, rgba(0,0,0,0.65)
-          100%), url('${imageBackground || mockImage}'), #1c1c1c`,
+          background: `url('${imageBackground || mockImage}'),#000000`,
           backgroundSize: "100%",
         }}
       >
-        <Container className={{ hide: hideDescription }}>
+        <Container>
           <Row>
             <Col className="movie-detail" xs={12} md={{ span: 6, offset: 6 }}>
               <h3>
@@ -53,8 +48,7 @@ Banner.propTypes = {
   title: PropTypes.string,
   tagline: PropTypes.string,
   overview: PropTypes.string,
-  releaseDate: PropTypes.number,
-  hideDescription: PropTypes.string,
+  releaseDate: PropTypes.string,
   runtime: PropTypes.number,
 };
 

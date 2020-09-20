@@ -4,6 +4,7 @@
     "paths": {
       "components/*": ["./components/*"],
       "api/*": ["./api/*"],
+      "mock/*": ["./mock/*"],
       "actions/*": ["./store/actions/*"],
       "reducers/*": ["./store/reducers/*"],
       "dispatchers/*": ["./store/dispatchers/*"],

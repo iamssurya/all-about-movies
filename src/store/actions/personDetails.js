@@ -17,9 +17,13 @@ const fetchPersonDetails = (storeName) => (dispatch) => {
   });
 };
 
-const shouldFetchPersonDetails = (state, storeName) => {
+export const shouldFetchPersonDetails = (state, storeName) => {
   const { personDetailsReducer } = state;
   const details = personDetailsReducer[storeName];
+
+  if (Array.isArray(details) && !details.length) {
+    return true;
+  }
 
   return !details || Object.keys(details).length > 1;
 };

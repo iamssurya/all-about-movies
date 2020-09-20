@@ -49,4 +49,4 @@ class MainNavBar extends React.Component {
   }
 }
 
-export default connect()(MainNavBar);
+export default React.memo(connect()(MainNavBar));

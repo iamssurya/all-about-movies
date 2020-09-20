@@ -22,9 +22,13 @@ const fetchMovieDetails = (storeName) => (dispatch) => {
   });
 };
 
-const shouldFetchMovieDetails = (state, storeName) => {
+export const shouldFetchMovieDetails = (state, storeName) => {
   const { movieDetailsReducer } = state;
   const details = movieDetailsReducer[storeName];
+
+  if (Array.isArray(details) && !details.length) {
+    return true;
+  }
 
   return !details || Object.keys(details).length > 1;
 };

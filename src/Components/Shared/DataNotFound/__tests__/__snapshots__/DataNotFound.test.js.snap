@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DataNotFound /> component tests Should render component correctly 1`] = `
+<Memo(DataNotFound)>
+  <Jumbotron
+    className="mt-3 bg-dark text-white"
+    fluid={false}
+  >
+    <div
+      className="mt-3 bg-dark text-white jumbotron"
+    >
+      <h1>
+        Oops!
+      </h1>
+      <p>
+        The information you have requested is not found!
+      </p>
+    </div>
+  </Jumbotron>
+</Memo(DataNotFound)>
+`;

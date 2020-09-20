@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainNavBar /> component tests Should render component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(MainNavBar)>
+    <MainNavBar
+      dispatch={[Function]}
+    >
+      <Navbar
+        bg="dark"
+        collapseOnSelect={false}
+        expand={true}
+        fixed="top"
+        variant="dark"
+      >
+        <nav
+          className="navbar navbar-expand navbar-dark bg-dark fixed-top"
+        >
+          <Row
+            className="w-100"
+            noGutters={false}
+          >
+            <div
+              className="w-100 row"
+            >
+              <Col>
+                <div
+                  className="col"
+                >
+                  <NavbarBrand
+                    href="/"
+                  >
+                    <a
+                      className="navbar-brand"
+                      href="/"
+                    >
+                      <h4>
+                        <MdMovieCreation>
+                          <IconBase
+                            attr={
+                              Object {
+                                "viewBox": "0 0 24 24",
+                              }
+                            }
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              strokeWidth="0"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"
+                                key="0"
+                              />
+                            </svg>
+                          </IconBase>
+                        </MdMovieCreation>
+                      </h4>
+                    </a>
+                  </NavbarBrand>
+                </div>
+              </Col>
+              <Col
+                xs={4}
+              >
+                <div
+                  className="col-4"
+                >
+                  <Form
+                    inline={true}
+                  >
+                    <form
+                      className="form-inline"
+                    >
+                      <FormControl
+                        as={[Function]}
+                        className="mr-sm-2 w-100"
+                        debounceTimeout={1000}
+                        onChange={[Function]}
+                        placeholder="Search Movies..."
+                        type="text"
+                      >
+                        <DebounceInput
+                          className="mr-sm-2 w-100 form-control"
+                          debounceTimeout={1000}
+                          element="input"
+                          forceNotifyByEnter={true}
+                          forceNotifyOnBlur={true}
+                          minLength={0}
+                          onChange={[Function]}
+                          placeholder="Search Movies..."
+                          type="text"
+                        >
+                          <input
+                            className="mr-sm-2 w-100 form-control"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onKeyDown={[Function]}
+                            placeholder="Search Movies..."
+                            type="text"
+                            value=""
+                          />
+                        </DebounceInput>
+                      </FormControl>
+                    </form>
+                  </Form>
+                </div>
+              </Col>
+            </div>
+          </Row>
+        </nav>
+      </Navbar>
+    </MainNavBar>
+  </Connect(MainNavBar)>
+</Provider>
+`;

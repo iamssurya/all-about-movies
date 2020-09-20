@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loader /> component tests Should render component correctly 1`] = `
+<Memo(Loader)>
+  <div
+    className="loader"
+  >
+    <div
+      className="align-self-center"
+    >
+      <Spinner
+        animation="grow"
+        variant="success"
+      >
+        <div
+          className="spinner-grow text-success"
+        />
+      </Spinner>
+      <Spinner
+        animation="grow"
+        variant="danger"
+      >
+        <div
+          className="spinner-grow text-danger"
+        />
+      </Spinner>
+      <Spinner
+        animation="grow"
+        variant="warning"
+      >
+        <div
+          className="spinner-grow text-warning"
+        />
+      </Spinner>
+      <Spinner
+        animation="grow"
+        variant="info"
+      >
+        <div
+          className="spinner-grow text-info"
+        />
+      </Spinner>
+      <Spinner
+        animation="grow"
+        variant="dark"
+      >
+        <div
+          className="spinner-grow text-dark"
+        />
+      </Spinner>
+    </div>
+  </div>
+</Memo(Loader)>
+`;

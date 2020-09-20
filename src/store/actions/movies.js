@@ -9,7 +9,7 @@ import {
  *
  * @param {*} storeName
  */
-const fetchMovies = storeName => dispatch => {
+const fetchMovies = (storeName) => (dispatch) => {
   dispatch(requestMovies(storeName));
 
   return getPopularMoviesList().then((response) => {
@@ -21,7 +21,7 @@ const fetchMovies = storeName => dispatch => {
  *
  * @param {*} storeName
  */
-const searchMovies = storeName => dispatch => {
+const searchMovies = (storeName) => (dispatch) => {
   dispatch(requestMovies(storeName));
 
   return searchMovie(storeName).then((response) => {
@@ -38,18 +38,22 @@ const searchMovies = storeName => dispatch => {
  * @param {*} state
  * @param {*} storeName
  */
-const shouldFetchMovies = (state, storeName) => {
+export const shouldFetchMovies = (state, storeName) => {
   const { moviesReducer } = state;
-  const movies = moviesReducer[storeName];
+  const details = moviesReducer[storeName];
 
-  return !movies;
+  if (Array.isArray(details) && !details.length) {
+    return true;
+  }
+
+  return !details || Object.keys(details).length > 1;
 };
 
 /**
  *
  * @param {*} storeName
  */
-export const peekMovies = storeName => (dispatch, getState) => {
+export const peekMovies = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovies(getState(), storeName)) {
     return dispatch(fetchMovies(storeName));
   }
@@ -59,7 +63,7 @@ export const peekMovies = storeName => (dispatch, getState) => {
  *
  * @param {*} storeName
  */
-export const peekSearchMovies = storeName => (dispatch, getState) => {
+export const peekSearchMovies = (storeName) => (dispatch, getState) => {
   if (shouldFetchMovies(getState(), storeName)) {
     return dispatch(searchMovies(storeName));
   }

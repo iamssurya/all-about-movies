@@ -18,4 +18,4 @@ const PersonCard = ({ profile_path, name }) => {
   );
 };
 
-export default withRouter(PersonCard);
+export default React.memo(withRouter(PersonCard));

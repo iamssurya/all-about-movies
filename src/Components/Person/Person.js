@@ -11,7 +11,20 @@ import "./Person.scss";
 
 class Person extends React.Component {
   static propTypes = {
-    match: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        personId: PropTypes.string.isRequired,
+      }),
+    }),
+    isFetching: PropTypes.bool,
+    isEmpty: PropTypes.bool,
+    personDetail: PropTypes.shape({
+      name: PropTypes.string,
+      birthday: PropTypes.string,
+      place_of_birth: PropTypes.string,
+      also_known_as: PropTypes.array,
+      biography: PropTypes.string,
+    }),
   };
 
   componentDidMount() {

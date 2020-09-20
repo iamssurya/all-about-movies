@@ -42,7 +42,7 @@ class MoviesList extends React.Component {
           title={firstMovie.original_title}
           tagline={firstMovie.tagline}
           overview={firstMovie.overview}
-          releaseDate={new Date(firstMovie.release_date).getFullYear()}
+          releaseDate={new Date(firstMovie.release_date).getFullYear().toString()}
         />
         <Container fluid className="mt-4">
           <h4 className="movies-list-title">Results for {selectedMovieList}</h4>

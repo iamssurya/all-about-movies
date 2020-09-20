@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Banner /> component tests Should render component correctly 1`] = `
+<Memo(Banner)
+  background="test-bg.png"
+  overview="overview"
+  releaseDate="12-12-1990"
+  runtime={123}
+  tagline="tagline"
+  title="title"
+>
+  <div
+    className="banner"
+    style={
+      Object {
+        "background": "url('http://image.tmdb.org/t/p/w1280test-bg.png'),#000000",
+        "backgroundSize": "100%",
+      }
+    }
+  >
+    <Container
+      fluid={false}
+    >
+      <div
+        className="container"
+      >
+        <Row
+          noGutters={false}
+        >
+          <div
+            className="row"
+          >
+            <Col
+              className="movie-detail"
+              md={
+                Object {
+                  "offset": 6,
+                  "span": 6,
+                }
+              }
+              xs={12}
+            >
+              <div
+                className="movie-detail col-md-6 col-12 offset-md-6"
+              >
+                <h3>
+                  title
+                   
+                  <span>
+                    (
+                    0
+                    )
+                  </span>
+                </h3>
+                <p
+                  className="runtime"
+                >
+                  123
+                   mins
+                </p>
+                <p
+                  className="tagline"
+                >
+                  tagline
+                </p>
+                <p
+                  className="overview"
+                >
+                  overview
+                </p>
+              </div>
+            </Col>
+          </div>
+        </Row>
+      </div>
+    </Container>
+  </div>
+</Memo(Banner)>
+`;

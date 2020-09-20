@@ -9,7 +9,14 @@ import CastAndCrew from "components/CastAndCrew/CastAndCrew";
 
 class Movie extends React.Component {
   static propTypes = {
-    match: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string.isRequired,
+      }),
+    }),
+    movieDetail: PropTypes.object.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    isEmpty: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {
@@ -46,7 +53,7 @@ class Movie extends React.Component {
           tagline={generalDetails.tagline}
           runtime={generalDetails.runtime}
           overview={generalDetails.overview}
-          releaseDate={new Date(generalDetails.release_date).getFullYear()}
+          releaseDate={new Date(generalDetails.release_date).getFullYear().toString()}
         />
         <CastAndCrew {...castAndCrewDetails} />
       </React.Fragment>
@@ -57,8 +64,11 @@ class Movie extends React.Component {
 const mapStateToProps = (state) => {
   const { selectedMovieId, movieDetailsReducer } = state;
 
-  const { isFetching, isEmpty } = movieDetailsReducer[selectedMovieId] || true;
-  const movieDetail = movieDetailsReducer[selectedMovieId];
+  const { isFetching, isEmpty } = movieDetailsReducer[selectedMovieId] || {
+    isFetching: true,
+    isEmpty: false,
+  };
+  const movieDetail = movieDetailsReducer[selectedMovieId] || {};
 
   return {
     movieDetail,
