@@ -1,7 +1,7 @@
 import { shouldFetchPersonDetails } from "../personDetails";
 
 describe("Actions:: MovieDetails test cases", () => {
-  it("shouldFetchPersonDetails should return false if store is present", () => {
+  it("shouldFetchPersonDetails should return false if store is present and data is array", () => {
     const state = {
       personDetailsReducer: {
         testState: [
@@ -10,6 +10,21 @@ describe("Actions:: MovieDetails test cases", () => {
             data: "test",
           },
         ],
+      },
+    };
+    const stateName = "testState";
+    const result = shouldFetchPersonDetails(state, stateName);
+
+    expect(result).toBeFalsy();
+  });
+
+  it("shouldFetchPersonDetails should return false if store is present and data is object", () => {
+    const state = {
+      personDetailsReducer: {
+        testState: {
+          id: 1,
+          data: "test",
+        },
       },
     };
     const stateName = "testState";

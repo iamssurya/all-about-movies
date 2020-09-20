@@ -9,8 +9,13 @@ const fetchPersonDetails = (storeName) => (dispatch) => {
   dispatch(requestPersonDetails(storeName));
 
   return getPersonDetail(storeName).then((response) => {
-    if (response && response.data) {
-      dispatch(receivePersonDetails(response.data, storeName));
+    let [generalDetails, personCredits] = response;
+    if (generalDetails && personCredits) {
+      generalDetails = generalDetails.data;
+      personCredits = personCredits.data;
+      dispatch(
+        receivePersonDetails({ generalDetails, personCredits }, storeName)
+      );
     } else {
       dispatch(returnPersonDetailsNotFound(storeName));
     }
@@ -25,7 +30,7 @@ export const shouldFetchPersonDetails = (state, storeName) => {
     return true;
   }
 
-  return !details || Object.keys(details).length > 1;
+  return !details || Object.keys(details).length < 1;
 };
 
 export const peekPersonDetails = (storeName) => (dispatch, getState) => {

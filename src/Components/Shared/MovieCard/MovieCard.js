@@ -13,7 +13,7 @@ class MovieCard extends React.Component {
     data: PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      backdrop_path: PropTypes.string.isRequired,
+      backdrop_path: PropTypes.string,
       release_date: PropTypes.string.isRequired,
       vote_count: PropTypes.number.isRequired,
     }),
@@ -39,7 +39,7 @@ class MovieCard extends React.Component {
           </Card.Body>
           <Card.Footer>
             <Row>
-              <Col>{new Date(data.release_date).getFullYear()}</Col>
+              <Col>{new Date(data.release_date).getFullYear() || "N/A"}</Col>
               <Col className="text-right">
                 <MdThumbUp /> <span>{data.vote_count}</span>
               </Col>

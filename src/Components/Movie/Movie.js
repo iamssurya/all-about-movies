@@ -37,13 +37,18 @@ class Movie extends React.Component {
     const { isFetching, isEmpty, movieDetail } = this.props;
     const { generalDetails, castAndCrewDetails } = movieDetail || {};
 
-    if (isEmpty || !generalDetails) {
+    if (isFetching || !generalDetails) {
+      return <Loader />;
+    }
+
+    if (isEmpty) {
       return <DataNotFound />;
     }
 
-    if (isFetching) {
-      return <Loader />;
-    }
+    const releaseDate =
+      (generalDetails.release_date &&
+        new Date(generalDetails.release_date).getFullYear().toString()) ||
+      "NA";
 
     return (
       <React.Fragment>
@@ -53,7 +58,7 @@ class Movie extends React.Component {
           tagline={generalDetails.tagline}
           runtime={generalDetails.runtime}
           overview={generalDetails.overview}
-          releaseDate={new Date(generalDetails.release_date).getFullYear().toString()}
+          releaseDate={releaseDate}
         />
         <CastAndCrew {...castAndCrewDetails} />
       </React.Fragment>

@@ -9,7 +9,13 @@ const apiKey = `api_key=${API_KEY}`;
  */
 
 const getPersonDetail = (personId) => {
-  return API.get(`${API_URL}${personBasePath}/${personId}?${apiKey}`);
+  const personDetail = API.get(
+    `${API_URL}${personBasePath}/${personId}?${apiKey}`
+  );
+  const personCredits = API.get(
+    `${API_URL}${personBasePath}/${personId}/credits?${apiKey}`
+  );
+  return Promise.all([personDetail, personCredits]);
 };
 
 export { getPersonDetail };

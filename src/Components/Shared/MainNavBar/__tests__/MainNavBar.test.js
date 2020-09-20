@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, { mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import toJson from "enzyme-to-json";
 import configureMockStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import MainNavbar from "../MainNavBar";
+import { MemoryRouter } from "react-router-dom";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,17 +13,17 @@ const store = mockStore({});
 
 describe("<MainNavBar /> component tests", () => {
   let Component;
-  let Wrapper;
   beforeEach(() => {
     Component = mount(
-      <Provider store={store}>
-        <MainNavbar />
-      </Provider>
+      <MemoryRouter>
+        <Provider store={store}>
+          <MainNavbar />
+        </Provider>
+      </MemoryRouter>
     );
-    Wrapper = toJson(Component);
   });
 
   it("Should render component correctly", () => {
-    expect(Wrapper).toMatchSnapshot();
+    expect(Component).toHaveLength(1);
   });
 });

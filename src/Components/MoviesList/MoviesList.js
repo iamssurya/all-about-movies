@@ -26,12 +26,12 @@ class MoviesList extends React.Component {
   render() {
     const { isEmpty, isFetching, movies, selectedMovieList } = this.props;
 
-    if (isEmpty || movies.length < 1) {
-      return <DataNotFound />;
-    }
-
     if (isFetching) {
       return <Loader />;
+    }
+
+    if (isEmpty || movies.length < 1) {
+      return <DataNotFound />;
     }
 
     const firstMovie = movies[0];
@@ -42,7 +42,9 @@ class MoviesList extends React.Component {
           title={firstMovie.original_title}
           tagline={firstMovie.tagline}
           overview={firstMovie.overview}
-          releaseDate={new Date(firstMovie.release_date).getFullYear().toString()}
+          releaseDate={new Date(firstMovie.release_date)
+            .getFullYear()
+            .toString()}
         />
         <Container fluid className="mt-4">
           <h4 className="movies-list-title">Results for {selectedMovieList}</h4>

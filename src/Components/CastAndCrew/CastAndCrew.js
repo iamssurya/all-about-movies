@@ -20,7 +20,7 @@ const CastAndCrew = ({ cast, crew, history }) => {
       <Container fluid>
         <Row className="mt-3">
           <Col xs={9}>
-            <h6 className="cast-title">Cast</h6>
+            <h4 className="cast-title">Cast</h4>
             <Row>
               {cast.map((person, index) => (
                 <Col
@@ -36,7 +36,7 @@ const CastAndCrew = ({ cast, crew, history }) => {
             </Row>
           </Col>
           <Col>
-            <Crew crew={crew} />
+            <Crew crew={crew} handleClick={(id) => navigateToDetail(id)} />
           </Col>
         </Row>
       </Container>

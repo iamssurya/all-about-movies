@@ -1,7 +1,7 @@
 import { shouldFetchMovies } from "../movies";
 
 describe("Actions:: MovieDetails test cases", () => {
-  it("shouldFetchMovies should return false if store is present", () => {
+  it("shouldFetchMovies should return false if store is present and data is array", () => {
     const state = {
       moviesReducer: {
         testState: [
@@ -10,6 +10,21 @@ describe("Actions:: MovieDetails test cases", () => {
             data: "test",
           },
         ],
+      },
+    };
+    const stateName = "testState";
+    const result = shouldFetchMovies(state, stateName);
+
+    expect(result).toBeFalsy();
+  });
+
+  it("shouldFetchMovies should return false if store is present and data is object", () => {
+    const state = {
+      moviesReducer: {
+        testState: {
+          id: 1,
+          data: "test",
+        },
       },
     };
     const stateName = "testState";

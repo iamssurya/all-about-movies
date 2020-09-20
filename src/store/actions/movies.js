@@ -46,7 +46,7 @@ export const shouldFetchMovies = (state, storeName) => {
     return true;
   }
 
-  return !details || Object.keys(details).length > 1;
+  return !details || Object.keys(details).length < 1;
 };
 
 /**

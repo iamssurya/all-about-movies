@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { peekPersonDetails } from "store/actions";
 import { selectPersonId } from "store/dispatchers";
-import { DataNotFound, Loader, PersonCard } from "components/Shared";
+import { DataNotFound, Loader, MovieCard, PersonCard } from "components/Shared";
 import { Container, Col, Row } from "react-bootstrap";
 
 import "./Person.scss";
@@ -18,12 +18,16 @@ class Person extends React.Component {
     }),
     isFetching: PropTypes.bool,
     isEmpty: PropTypes.bool,
-    personDetail: PropTypes.shape({
+    personDetails: PropTypes.shape({
       name: PropTypes.string,
       birthday: PropTypes.string,
       place_of_birth: PropTypes.string,
       also_known_as: PropTypes.array,
       biography: PropTypes.string,
+    }),
+    personCredits: PropTypes.shape({
+      cast: PropTypes.array,
+      crew: PropTypes.array,
     }),
   };
 
@@ -42,14 +46,14 @@ class Person extends React.Component {
   }
 
   render() {
-    const { isFetching, isEmpty, personDetail } = this.props;
-
-    if (isEmpty || !personDetail) {
-      return <DataNotFound />;
-    }
+    const { isFetching, isEmpty, personDetails, personCredits } = this.props;
 
     if (isFetching) {
       return <Loader />;
+    }
+
+    if (isEmpty || !personDetails) {
+      return <DataNotFound />;
     }
 
     const {
@@ -58,14 +62,16 @@ class Person extends React.Component {
       place_of_birth,
       also_known_as,
       biography,
-    } = personDetail;
+    } = personDetails;
+
+    const { cast } = personCredits;
 
     return (
       <React.Fragment>
         <Container className="person-detail">
           <Row>
             <Col xs={4}>
-              <PersonCard {...personDetail} />
+              <PersonCard {...personDetails} />
             </Col>
             <Col xs={8} className="person-info">
               {name && <h3>{name}</h3>}
@@ -82,6 +88,24 @@ class Person extends React.Component {
             </Col>
           </Row>
         </Container>
+        {cast && cast.length > 0 && (
+          <Container fluid>
+            <Row>
+              <Col>
+                <h4 className="movies-list-title">Movies ({cast.length})</h4>
+                <Row>
+                  {cast.map((movie) => (
+                    <MovieCard
+                      data={movie}
+                      key={movie.id}
+                      className="movie-card"
+                    />
+                  ))}
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+        )}
       </React.Fragment>
     );
   }
@@ -92,10 +116,17 @@ const mapStateToProps = (state) => {
 
   const { isFetching, isEmpty } =
     personDetailsReducer[selectedPersonId] || true;
-  const personDetail = personDetailsReducer[selectedPersonId];
+  const detail = personDetailsReducer[selectedPersonId];
+  let personDetails = {};
+  let personCredits = {};
+  if (detail && detail.generalDetails && detail.personCredits) {
+    personDetails = detail.generalDetails;
+    personCredits = detail.personCredits;
+  }
 
   return {
-    personDetail,
+    personDetails,
+    personCredits,
     isFetching,
     isEmpty,
   };

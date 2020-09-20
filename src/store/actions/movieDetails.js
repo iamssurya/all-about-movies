@@ -30,7 +30,7 @@ export const shouldFetchMovieDetails = (state, storeName) => {
     return true;
   }
 
-  return !details || Object.keys(details).length > 1;
+  return !details || Object.keys(details).length < 1;
 };
 
 export const peekMovieDetails = (storeName) => (dispatch, getState) => {

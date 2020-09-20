@@ -2,15 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 
-const Crew = ({ crew }) => {
+import "./Crew.scss";
+
+const Crew = ({ crew, handleClick }) => {
   return (
     <React.Fragment>
-      <h6 className="crew-title">Crew</h6>
+      <h4 className="crew-title">Crew</h4>
       <hr />
       {crew.map((crewDetail, index) => (
         <Row key={index}>
           <Col>
-            <h3 className="crew-name">{crewDetail.name}</h3>
+            <h3
+              className="crew-name"
+              onClick={() => handleClick(crewDetail.id)}
+            >
+              {crewDetail.name}
+            </h3>
             <p className="crew-job">{crewDetail.job}</p>
           </Col>
         </Row>
@@ -21,6 +28,7 @@ const Crew = ({ crew }) => {
 
 Crew.propTypes = {
   crew: PropTypes.array.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export default React.memo(Crew);

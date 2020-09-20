@@ -1,10 +1,11 @@
 import React from "react";
 import { Col, Form, FormControl, Navbar, Row } from "react-bootstrap";
 import { connect } from "react-redux";
-import { peekSearchMovies } from "store/actions/movies";
+import { peekSearchMovies, peekMovies } from "store/actions/movies";
 import { DebounceInput } from "react-debounce-input";
 import { selectMovieStore } from "store/dispatchers";
 import { MdMovieCreation } from "react-icons/md";
+import { withRouter } from "react-router-dom";
 
 const DEFAULT_SEARCH = "popular";
 
@@ -12,10 +13,17 @@ class MainNavBar extends React.Component {
   searchMovies = (event) => {
     event.preventDefault();
     const { dispatch } = this.props;
-    const dispatchValue = event.target.value || DEFAULT_SEARCH;
+    if (event.target.value) {
+      dispatch(selectMovieStore(event.target.value));
+      dispatch(peekSearchMovies(event.target.value));
+    } else {
+      dispatch(selectMovieStore(DEFAULT_SEARCH));
+      dispatch(peekMovies(DEFAULT_SEARCH));
+    }
+  };
 
-    dispatch(selectMovieStore(dispatchValue));
-    dispatch(peekSearchMovies(dispatchValue));
+  goToHome = () => {
+    this.props.history.push("/");
   };
 
   render() {
@@ -24,7 +32,7 @@ class MainNavBar extends React.Component {
         <Navbar bg="dark" variant="dark" fixed="top">
           <Row className="w-100">
             <Col>
-              <Navbar.Brand href="/">
+              <Navbar.Brand onClick={this.goToHome}>
                 <h4>
                   <MdMovieCreation />
                 </h4>
@@ -49,4 +57,4 @@ class MainNavBar extends React.Component {
   }
 }
 
-export default React.memo(connect()(MainNavBar));
+export default React.memo(withRouter(connect()(MainNavBar)));
