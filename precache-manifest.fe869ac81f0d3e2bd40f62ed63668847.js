@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b4e286dcba5a3ff2fc6d2eacf4911e62",
+    "revision": "2696b718c3302ba224168b9e3cf31d6a",
     "url": "/all-about-movies/index.html"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/css/9.5c7d779d.chunk.css"
   },
   {
-    "revision": "c285fb17a2d1211f0939",
+    "revision": "36341386f7e0a0aa3025",
     "url": "/all-about-movies/static/css/main.1be962f4.chunk.css"
   },
   {
@@ -80,8 +80,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/js/9.3756f740.chunk.js"
   },
   {
-    "revision": "c285fb17a2d1211f0939",
-    "url": "/all-about-movies/static/js/main.2d470ecc.chunk.js"
+    "revision": "36341386f7e0a0aa3025",
+    "url": "/all-about-movies/static/js/main.5a89c974.chunk.js"
   },
   {
     "revision": "4177974ebe7feb91a601",
