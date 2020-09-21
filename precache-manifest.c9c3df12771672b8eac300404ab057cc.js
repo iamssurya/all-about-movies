@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2696b718c3302ba224168b9e3cf31d6a",
+    "revision": "33f1c5c2dcaffb7f06614facb4a01fe0",
     "url": "/all-about-movies/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/css/10.e0b6c68f.chunk.css"
   },
   {
-    "revision": "d912a15246f7dbc92ab4",
+    "revision": "8a3fdbe030cbef04ddd4",
     "url": "/all-about-movies/static/css/5.62a2b698.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/css/8.febc78df.chunk.css"
   },
   {
-    "revision": "ff65e59ffbbca9bc338c",
-    "url": "/all-about-movies/static/css/9.5c7d779d.chunk.css"
+    "revision": "1ac576381314ddfe641a",
+    "url": "/all-about-movies/static/css/9.f9c6178d.chunk.css"
   },
   {
     "revision": "36341386f7e0a0aa3025",
@@ -60,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/js/4.e3e0b862.chunk.js"
   },
   {
-    "revision": "d912a15246f7dbc92ab4",
-    "url": "/all-about-movies/static/js/5.29a804cf.chunk.js"
+    "revision": "8a3fdbe030cbef04ddd4",
+    "url": "/all-about-movies/static/js/5.54a2091b.chunk.js"
   },
   {
     "revision": "213258c6f5107062ba89",
@@ -76,15 +76,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/all-about-movies/static/js/8.3421827a.chunk.js"
   },
   {
-    "revision": "ff65e59ffbbca9bc338c",
-    "url": "/all-about-movies/static/js/9.3756f740.chunk.js"
+    "revision": "1ac576381314ddfe641a",
+    "url": "/all-about-movies/static/js/9.b1bed70a.chunk.js"
   },
   {
     "revision": "36341386f7e0a0aa3025",
     "url": "/all-about-movies/static/js/main.5a89c974.chunk.js"
   },
   {
-    "revision": "4177974ebe7feb91a601",
-    "url": "/all-about-movies/static/js/runtime-main.b5cfa4a2.js"
+    "revision": "6c2a728889a9f82bb028",
+    "url": "/all-about-movies/static/js/runtime-main.24d0b15c.js"
   }
 ]);
