@@ -27,6 +27,7 @@ const Banner = ({
         style={{
           background: `url('${imageBackground || mockImage}'),#000000`,
           backgroundSize: "100%",
+          backgroundRepeat: "no-repeat"
         }}
       >
         <Container>

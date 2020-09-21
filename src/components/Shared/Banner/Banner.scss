@@ -1,13 +1,22 @@
 @import "styles";
 
 .banner {
-  @include fade-in(.5s);
-  padding-top: 15%;
+  @include fade-in(0.5s);
+
+  padding-top: 100px;
   height: 500px;
+  overflow: auto;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 768px) {
+  .banner {
+    padding-top: 200px;
+  }
 }
 
 .movie-detail {
-  @include fade-in(.5s, .5s);
+  @include fade-in(0.5s, 0.5s);
 
   background: $transparent-black;
   text-align: left;

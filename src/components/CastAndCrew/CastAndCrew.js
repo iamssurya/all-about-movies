@@ -24,7 +24,7 @@ const CastAndCrew = ({ cast, crew, history }) => {
     <React.Fragment>
       <Container fluid className="cast-and-crew">
         <Row className="mt-3">
-          <Col xs={9}>
+          <Col xs={12} md={9}>
             <h4 className="cast-title">
               <TiGroup /> Cast
             </h4>
