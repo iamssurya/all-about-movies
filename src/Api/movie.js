@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from "../site-config";
-import API from "../Utils/apiHelper";
+import API from "../utils/apiHelper";
 
 const movieBasePath = "movie";
 const apiKey = `api_key=${API_KEY}`;

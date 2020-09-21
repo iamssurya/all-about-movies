@@ -1,4 +1,4 @@
-import { getPopularMoviesList, searchMovie } from "api";
+import { getPopularMoviesList, searchMovie } from "api/";
 import {
   receiveMovies,
   requestMovies,

@@ -1,4 +1,4 @@
-import { getPersonDetail } from "api/";
+import { getPersonDetail } from "api";
 import {
   requestPersonDetails,
   receivePersonDetails,

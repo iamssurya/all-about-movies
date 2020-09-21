@@ -1,4 +1,4 @@
-import { getMovieDetail } from "api/";
+import { getMovieDetail } from "api";
 import {
   requestMovieDetails,
   receiveMovieDetails,
