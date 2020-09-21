@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import { Movie, Person, Home } from "components";
 import Error from "./Error";
 import { MainNavBar } from "components/Shared";
-import Loader from "components/Shared/Loader/Loader";
+import Loader from "./components/Shared/Loader/Loader";
 
 function App() {
   return (
