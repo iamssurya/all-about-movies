@@ -1,5 +1,7 @@
 ALL ABOUT MOVIES
 
+Demo: https://iamssurya.github.io/all-about-movies/
+
 ### To begin with 
 `npm install`
 
