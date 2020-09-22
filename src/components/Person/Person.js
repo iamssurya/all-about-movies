@@ -73,10 +73,10 @@ class Person extends React.Component {
       <React.Fragment>
         <Container className="person-detail">
           <Row>
-            <Col xs={4}>
+            <Col xs={12} md={4}>
               <PersonCard {...personDetails} />
             </Col>
-            <Col xs={8} className="person-info">
+            <Col xs={12} md={8} className="person-info">
               {name && <h3>{name}</h3>}
               {birthday && <p className="birthday">Born on {birthday}</p>}
               {place_of_birth && (
