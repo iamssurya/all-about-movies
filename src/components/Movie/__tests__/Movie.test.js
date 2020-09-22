@@ -1,6 +1,5 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
-import sinon from "sinon";
 import toJson from "enzyme-to-json";
 import Adapter from "enzyme-adapter-react-16";
 import Movie from "../Movie";
