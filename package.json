@@ -2,7 +2,7 @@
   "name": "all-about-movies",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://iamssurya.github.io/all-about-movies/",
+  "homepage": "https://suryalovesjs.github.io/react-redux-realworld-movies/",
   "dependencies": {
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
