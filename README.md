@@ -1,4 +1,4 @@
-ALL ABOUT MOVIES
+REACT REDUX REALWORLD MOVIES
 
 Demo: https://iamssurya.github.io/all-about-movies/
 
