@@ -1,6 +1,6 @@
 REACT REDUX REALWORLD MOVIES
 
-Demo: https://iamssurya.github.io/all-about-movies/
+Demo: https://suryalovesjs.github.io/react-redux-realworld-movies/
 
 ### To begin with 
 `npm install`
